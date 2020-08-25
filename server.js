@@ -183,7 +183,7 @@ app.get('/Login.html', (req, res) => {
 })
 
 app.post('/login', (req, res) => {
-  console.log(req.query);
+  console.log("server " + req.query);
   let email = req.query.email;
   let password = req.query.password;
   let query = `SELECT user_id FROM users WHERE email = '${email}' AND password = '${password}';`
