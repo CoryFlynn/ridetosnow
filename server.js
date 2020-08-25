@@ -120,7 +120,7 @@ app.get('/Home.html', (req, res) => {
       //do nothing
     })
       .catch( error => {
-        //console.log(error);
+        console.log(error);
       })
     res.sendFile(path.join(__dirname, './views', 'Home.html'));
 });
