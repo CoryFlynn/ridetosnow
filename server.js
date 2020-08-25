@@ -99,6 +99,10 @@ function retrieveNpost(url, resort, id, url2){
       })
 }
 
+app.get('/', (req,res) => {
+  res.sendFile(path.join(__dirname, './views', 'Login.html'))
+})
+
 app.get('/Home.html', (req, res) => {
     for (resort in resorts){
       var url = "http://api.powderlin.es/closest_stations?lat=" + resorts[resort].lat + "&lng=" + resorts[resort].lng + "&data=true&days=1&count=1";
