@@ -182,7 +182,7 @@ app.get('/Login.html', (req, res) => {
   res.sendFile(path.join(__dirname, './views', 'Login.html'))
 })
 
-app.get('/login', (req, res) => {
+app.post('/login', (req, res) => {
   console.log(req.query);
   let email = req.query.email;
   let password = req.query.password;
@@ -236,11 +236,6 @@ app.get('/Faq.html', (req,res) => {
   res.sendFile(path.join(__dirname, './views', 'Faq.html'))
   //db.any('')
 });
-
-app.post('/login', (req, res) => {
-  console.log(req)
-  console.log(res)
-})
 
 app.listen(process.env.PORT || 3000);
 console.log('3000 is the magic port');
