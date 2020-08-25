@@ -55,7 +55,7 @@
     var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     if(re.test(String(email.value).toLowerCase())){
         $.ajax({
-            url: `http://localhost:3000/signup`,  // the local Node server
+            url: `/signup`,
             method: 'GET',
             data: {
                 email: email.value,
@@ -68,7 +68,7 @@
             success: (data)=>{
                 sessionStorage.setItem('user_id', data[0].user_id)
                 $.ajax({
-                    url: `http://localhost:3000/Home.html`,  // the local Node server
+                    url: `/Home.html`,  // the local Node server
                     method: 'GET',
                 })
             }

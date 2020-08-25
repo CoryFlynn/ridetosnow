@@ -237,7 +237,10 @@ app.get('/Faq.html', (req,res) => {
   //db.any('')
 });
 
-
+app.post('/login', (req, res) => {
+  console.log(req)
+  console.log(res)
+})
 
 app.listen(process.env.PORT || 3000);
 console.log('3000 is the magic port');
