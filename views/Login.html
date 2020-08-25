@@ -31,7 +31,7 @@
                 console.log(email + ' ' + password);
                 if(re.test(String(email).toLowerCase())){
                     $.ajax({
-                        url: `https://ski-lift-site.herokuapp.com//login`,  // the Heroku DB
+                        url: `https://ski-lift-site.herokuapp.com/login`,  // the Heroku DB
                         method: 'POST',
                         data: {
                             email: email,
