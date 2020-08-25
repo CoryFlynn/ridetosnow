@@ -36,11 +36,11 @@ var path = require('path');
 // REMEMBER to chage the password
 
 const dbConfig = {
-        host: 'localhost',
+        host: 'ec2-54-86-57-171.compute-1.amazonaws.com',
         port: 5432,
-        database: 'project',
-        user: 'postgres',
-        password: ' '
+        database: 'dc7jlst3fp1l35',
+        user: 'spgxlnbgalreho',
+        password: '05a10587e28d292626ddcc5d8bc563cca2321eb2332c767a0fc8e057347b01be'
 };
 
 let db = pgp(dbConfig);
