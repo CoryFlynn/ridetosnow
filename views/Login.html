@@ -30,7 +30,7 @@
                 var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
                 if(re.test(String(email).toLowerCase())){
                     $.ajax({
-                        url: `postgres://spgxlnbgalreho:05a10587e28d292626ddcc5d8bc563cca2321eb2332c767a0fc8e057347b01be@ec2-54-86-57-171.compute-1.amazonaws.com:5432/dc7jlst3fp1l35`,  // the local Node server
+                        url: `DATABASE_URL`,  // the local Node server
                         method: 'GET',
                         data: {
                             email: email,
