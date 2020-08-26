@@ -100,7 +100,7 @@ function retrieveNpost(url, resort, id, url2){
 }
 
 app.get('/', (req,res) => {
-  res.sendFile(path.join(__dirname, './views', 'Login.html'))
+  res.sendFile(path.join(__dirname, './views', 'Home.html'))
 })
 
 app.get('/Home', (req, res) => {
@@ -199,12 +199,12 @@ app.post('/login', (req, res) => {
     })
 })
 
-app.get('/Signup.html', (req,res) => {
+app.get('/Signup', (req,res) => {
   res.sendFile(path.join(__dirname, './views', 'Signup.html'))
   //db.any('')
 });
 
-app.get('/Settings.html', (req,res) => {
+app.get('/Settings', (req,res) => {
   res.sendFile(path.join(__dirname, './views', 'Settings.html'))
   //db.any('')
 });
@@ -225,13 +225,8 @@ app.get('/signup', (req, res) => {
     })
 })
 
-app.get('/Profile.html', (req,res) => {
+app.get('/Profile', (req,res) => {
   res.sendFile(path.join(__dirname, './views', 'Profile.html'))
-  //db.any('')
-});
-
-app.get('/Settings.html', (req,res) => {
-  res.sendFile(path.join(__dirname, './views', 'Settings.html'))
   //db.any('')
 });
 
