@@ -162,7 +162,7 @@
           var start = $("#start1").val();
           $.ajax({
               method: 'POST',
-              url: "/setting",  // the local Node server, change later?
+              url: "/setting",
               data: {
                 "user_id": sessionStorage.getItem('user_id'),
                 "date": date,
@@ -175,7 +175,7 @@
               dataType: "text"
           })
           .then(data => {
-            console.log("html " + data)
+            console.log("html " + sessionStorage)
           })
         }
         //name , email, password, age INT, car, car_color, license;";
