@@ -162,7 +162,7 @@
           var start = $("#start1").val();
           $.ajax({
               method: 'POST',
-              url: "http://localhost:3000/setting",  // the local Node server, change later?
+              url: "/setting",  // the local Node server, change later?
               data: {
                 "user_id": sessionStorage.getItem('user_id'),
                 "date": date,
