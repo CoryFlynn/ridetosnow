@@ -210,6 +210,7 @@ th, td {
 }
   $("form").submit( ()=> {
     event.preventDefault();
+    console.log(dateInput)
     $.ajax({
       url: "https://ski-lift-site.herokuapp.com/search_rides",
       method: 'GET',
