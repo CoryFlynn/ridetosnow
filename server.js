@@ -103,7 +103,7 @@ app.get('/', (req,res) => {
   res.sendFile(path.join(__dirname, './views', 'Login.html'))
 })
 
-app.get('/Home.html', (req, res) => {
+app.get('/Home', (req, res) => {
     for (resort in resorts){
       var url = "http://api.powderlin.es/closest_stations?lat=" + resorts[resort].lat + "&lng=" + resorts[resort].lng + "&data=true&days=1&count=1";
       var url2 = `https://api.darksky.net/forecast/0bb64cbe7d94b50e33c824e088f2c9f7/${resorts[resort].lat},${resorts[resort].lng}`;
@@ -178,7 +178,7 @@ app.post('/setting', (req, res) => {
   res.sendFile(path.join(__dirname, './views', 'Settings.html'))
 });
 
-app.get('/Login.html', (req, res) => {
+app.get('/Login', (req, res) => {
   res.sendFile(path.join(__dirname, './views', 'Login.html'))
 })
 
