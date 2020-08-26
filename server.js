@@ -189,6 +189,8 @@ app.post('/login', (req, res) => {
   let query = `SELECT user_id FROM users WHERE email = '${email}' AND password = '${password}';`
   db.any(query)
     .then( data => {
+      console.log(data);
+      //sessionStorage.setItem('myCat', 'Tom');
       res.send(data);
     })
     .catch( () => {
