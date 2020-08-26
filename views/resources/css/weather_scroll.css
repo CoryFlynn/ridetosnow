@@ -1,13 +1,18 @@
 .scroll-left {
  height: 50px;	
  overflow: hidden;
- position: relative;
+ position: fixed;
  background: white;
  color: #152257;
  border: 3px solid #152257;
+ bottom: 0;
+ width: 100%;
+ background-color: #152257
 }
 .scroll-left p {
+ color: white;
  position: absolute;
+ font-weight: bolder;
  width: 100%;
  height: 100%;
  font-size: 20px;
@@ -19,9 +24,9 @@
  -webkit-transform:translateX(100%);	
  transform:translateX(100%);
  /* Apply animation to this element */	
- -moz-animation: scroll-left 15s linear infinite;
- -webkit-animation: scroll-left 15s linear infinite;
- animation: scroll-left 15s linear infinite;
+ -moz-animation: scroll-left 17s linear infinite;
+ -webkit-animation: scroll-left 17s linear infinite;
+ animation: scroll-left 17s linear infinite;
 }
 /* Move it (define the animation) */
 @-moz-keyframes scroll-left {

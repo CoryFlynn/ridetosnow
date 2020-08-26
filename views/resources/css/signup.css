@@ -12,7 +12,6 @@ body {
   -ms-flex-align: center;
   text-align: center;
   align-items: center;
-  padding-top: 40px;
   padding-bottom: 40px;
   background-color: #f5f5f5;
 }
@@ -44,16 +43,28 @@ body {
 }
 .form-signup input[type="email"] {
   margin-bottom: 10px;
-  border-bottom-right-radius: 0;
-  border-bottom-left-radius: 0;
 }
 .form-signup input[type="password"] {
   margin-bottom: 10px;
-  border-top-left-radius: 0;
-  border-top-right-radius: 0;
 }
 
 #driver_info {
   visibility: hidden;
   height: 0px;
+}
+
+#dLabel {
+  margin-right: 20px;
+}
+
+#drLabel {
+  margin-right: 190px;
+}
+
+h1 {
+  margin-bottom: 40px;
+}
+
+#signupbtn {
+  background-color: #152257 !important;
 }

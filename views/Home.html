@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta charset="UTF-8">
 <!------>
-<link href="./views/resources/css/weather_scroll.css" rel="stylesheet">
+<link href="./resources/css/weather_scroll.css" rel="stylesheet">
 <!------>
 <style>
 body, html {
@@ -15,16 +15,17 @@ body, html {
 
 .bg {
   background-image: url("../resources/img/adventure-alpine-alps-414459.jpg");
-  height: 50%;
+  height: 30%;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+  opacity: 0.7;
 }
 
 .caption {
   position: absolute;
   left: 0;
-  top: 25%;
+  top: 15%;
   width: 100%;
   text-align: center;
   color: #000;
@@ -69,13 +70,13 @@ li a:hover {
 
 .description {
   color: white;
-  font-size: 20px;
+  font-size: 17px;
   font-style: normal;
   text-align: center;
-  font-weight: bolder;
+  font-weight: bold;
   font-family: Noto Sans, sans-serif;
   background-color: #152257;
-  padding: 20px 20px;
+  padding: 10px 10px;
 }
 
 .heading {
@@ -87,6 +88,7 @@ li a:hover {
   padding-bottom: 15px;
   width: 25%;
   background-color: #333;
+  margin-top: 10px;
 }
 
 .custom-select {
@@ -111,19 +113,17 @@ th, td {
 </div>
 
 <ul>
-  <li><a href= "Home.html">Home</a></li>
+  <li><a href= "Home.html" class="active">Home</a></li>
   <li><a href="Signup.html">Signup</a></li>
   <li><a href="Login.html">Login</a></li>
   <li><a href="Faq.html">FAQ</a></li>
   <li><a href="Hemp.html">Help</a></li>
-  <li style="float:right"><a class="active" href="Profile.html">Profile</a></li>
+  <li style="float:right"><a href="Profile.html">Profile</a></li>
   <li style="float:right"><a href="Settings.html">Settings</a></li>
 </ul>
 <div class="description">Ski Lift is the #1 ridesharing app for Colorado skiiers and boarders.<br>
    Search now to find rides to your favorite local slopes.</div>
-<br>
 <div class="heading">Search For Rides</div>
-<br>
 <form action="/search_rides" method="get">
 
 <div class="input-group mb-3">
@@ -155,26 +155,15 @@ th, td {
   <div class="input-group-prepend">
     <span class="input-group-text" id="basic-addon1">Ride Date</span>
   </div>
-  <input name="dateInput" type="text" class="form-control" placeholder="MM/DD/YYYY" aria-label="Username" aria-describedby="basic-addon1" id="dateInput">
+  <input name="dateInput" type="date" class="form-control" placeholder="MM/DD/YYYY" aria-label="Username" aria-describedby="basic-addon1" id="dateInput">
 </div>
 
 
 <button type="submit" class="btn btn-secondary" onclick="">Search</button>
 
 </form>
-<br>
-<br>
-<table style="width:100%" id="rideTable">
-  <tr>
-    <th>Ride Date</th>
-    <th>Departure Time</th>
-    <th>Starting Location</th>
-    <th>Destination Mountain</th>
-    <th>Available Seats</th>
-    <th>Additional Info</th>
-  </tr>
+<table style="width:100%; margin:5px" id="rideTable">
 </table>
-<br>
 
 <div class="asuh">
   <div class= "heading">Weather Forecast</div>
@@ -194,10 +183,9 @@ th, td {
   </div>
 </div>
 
-<br>
 <!----->
 <div class="scroll-left">
-  <p id="weather">*EXAMPLE* Resort: El Dora, Condition: Absolutely Shitting Snow, Temperature: 30 degrees, Wind: 8mph *EXAMPLE*</p>
+  <p id="weather"> Please Select A Mountain For Conditions </p>
 </div>
 <!----->
 
@@ -214,7 +202,7 @@ th, td {
           mountain: m },
         success: function(data){
             let st = `Resort: ${data[0].mountain}, Conditions: ${data[0].conditions}, Snowpack: ${data[0].snowpack ? data[0].snowpack : 0} in. , Snow over last 24: ${data[0].snowfall ? data[0].snowfall : 0} in. , Temperature: ${data[0].temperature}°F, Wind: ${data[0].wind}mph`;
-            document.getElementById("weather").innerHTML=st
+            document.getElementById("weather").innerHTML= st
           }
     })
 

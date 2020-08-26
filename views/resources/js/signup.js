@@ -4,7 +4,7 @@ function getDriverInfo(id, toggle){
         document.getElementById(id).style.visibility = "hidden";
     }
     else {
-        document.getElementById(id).style.height = "200px";
+        document.getElementById(id).style.height = "50px";
         document.getElementById(id).style.visibility = "visible";
     }
 }

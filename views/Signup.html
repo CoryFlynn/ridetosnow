@@ -6,11 +6,13 @@
         <meta name="description" content="">
         <title> Signup Page </title>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
-        <link href="./views/resources/css/signup.css" rel="stylesheet">
-        <script src="./views/resources/js/signup.js"></script>
+        <link href="./resources/css/signup.css" rel="stylesheet">
+        <script src="./resources/js/signup.js"></script>
     </head>
     <body class="center text-center">
+        <div class="bg"></div>
         <form class="form-signup">
+            <h1> Sign Up </h1>
             <div class="form-group">
                 <label for="name" class="col-2" id="input_id">First Name: </label>
                 <input type="text" id="first_name" name="first_name" class=" col-5">
@@ -28,20 +30,20 @@
                 <input type="password" id="password" name="password" class="col-5">
             </div>
             <div class="form-group">
-                <label for="isDriver" class="col-1"> Driver: </label>
+                <label for="isDriver" id="drLabel"> Driver: </label>
                 <input type="radio" name="isDriver" value="true" onclick="getDriverInfo('driver_info', 1)"> Yes </input>
                 <input type="radio" name="isDriver" value="false" onclick="getDriverInfo('driver_info', 0)"> No </input>
             </div>
             <div id="driver_info">
                 <div class="form-group">
-                    <label for="is18" class="col-2"> Are you 18 years old, or older? </label>
+                    <label for="is18" id="dLabel"> Are you 18 years old, or older? </label>
                     <input type="radio" name="is18" value="true"> Yes </input>
                     <input type="radio" name="is18" value="false"> No </input>
                 </div>
             </div>    
-            <input type="submit" value="Submit" class="btn btn-primary btn-block">
+            <input type="submit" value="Submit" class="btn btn-primary btn-block" id="signupbtn">
             <br/>
-            <a href = "Login.html"><button type="button" class="btn btn-primary btn-block">Back to Sign In</button></a>
+            <a href = "Login.html"><button type="button" class="btn btn-primary btn-block" id="signupbtn">Back to Sign In</button></a>
         </form>
     </body>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.js"></script>
