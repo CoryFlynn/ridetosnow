@@ -188,6 +188,7 @@ app.post('/login', (req, res) => {
   let password = req.query.password;
   let query = `SELECT user_id FROM users WHERE email = '${email}' AND password = '${password}';`
   db.any(query)
+  console.log(query)
     .then( data => {
       console.log(data);
       //sessionStorage.setItem('myCat', 'Tom');
