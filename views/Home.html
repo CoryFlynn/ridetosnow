@@ -203,6 +203,7 @@ th, td {
         success: function(data){
             let st = `Resort: ${data[0].mountain}, Conditions: ${data[0].conditions}, Snowpack: ${data[0].snowpack ? data[0].snowpack : 0} in. , Snow over last 24: ${data[0].snowfall ? data[0].snowfall : 0} in. , Temperature: ${data[0].temperature}°F, Wind: ${data[0].wind}mph`;
             document.getElementById("weather").innerHTML= st
+            console.log(data[0])
           }
     })
 
