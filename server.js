@@ -71,13 +71,14 @@ function retrieveNpost(url, resort, id, url2) {
       let snowpack = data["Snow Depth (in)"] ? data["Snow Depth (in)"] : null;
       let snowfall = data["Change In Snow Depth (in)"] ? data["Change In Snow Depth (in)"] : null;
       let temp = data["Observed Air Temperature (degrees farenheit)"];
+      console.log("data:", data);
       rp.get(url2)
         .then((res2) => {
           let wind = JSON.parse(res2).currently.windSpeed;
           let conditions = JSON.parse(res2).currently.summary;
           let query1 =
             "CREATE TABLE IF NOT EXISTS weather( id INT PRIMARY KEY, mountain VARCHAR(30) , temperature INT,wind INT, snowpack INT, snowfall INT, conditions VARCHAR(30));";
-          let query2 = `INSERT INTO weather (id, mountain, temperature, snowpack, snowfall, wind, conditions) VALUES (${id}, ${resort}, ${temp}, ${snowpack}', ${snowfall}, ${wind}, '${conditions}') ON CONFLICT (id) DO UPDATE SET temperature = ${temp}, snowpack = ${snowpack}, snowfall = ${snowfall};`;
+          let query2 = `INSERT INTO weather (id, mountain, temperature, snowpack, snowfall, wind, conditions) VALUES (${id}, ${resort}, ${temp}, ${snowpack}', ${snowfall}, ${wind}, '${conditions}') ON CONFLICT (id) DO UPDATE SET temperature = ${temp}, snowpack = ${snowpack}, snowfall = ${snowfall}, wind = ${wind}, conditions = ${conditions};`;
           console.log(query2);
           db.task("insert data", (task) => {
             return task.batch([task.any(query1), task.any(query2)]);
@@ -86,7 +87,7 @@ function retrieveNpost(url, resort, id, url2) {
               return true;
             })
             .catch((error) => {
-              console.log(error);
+              //console.log(error);
             });
         })
         .catch((err) => {
