@@ -9,14 +9,14 @@ function getDriverInfo(id, toggle) {
 }
 
 function submitForm() {
-  var dY = $("#isDriver").val();
+  var dY = $("#isDriver").is(":checked");
   console.log(dY);
   var regEx = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
   console.log(d);
   if (regEx.test(String(email.value).toLowerCase())) {
     $.ajax({
       url: `/signup`,
-      method: "GET",
+      method: "POST",
       data: {
         email: email.value,
         password: password.value,

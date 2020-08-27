@@ -66,33 +66,33 @@ var resorts = [eldo, breck, vail, beav, steam, key, abay, copp, winter];
 //function to post data to postgres
 function retrieveNpost(url, resort, id, url2) {
   rp.get(url)
-    .then(res => {
+    .then((res) => {
       let data = JSON.parse(res)[0].data[1];
       let snowpack = data["Snow Depth (in)"];
       let snowfall = data["Change In Snow Depth (in)"];
       let temp = data["Observed Air Temperature (degrees farenheit)"];
       rp.get(url2)
-        .then(res2 => {
+        .then((res2) => {
           let wind = JSON.parse(res2).currently.windSpeed;
           let conditions = JSON.parse(res2).currently.summary;
           let query1 =
             "CREATE TABLE IF NOT EXISTS weather( id INT PRIMARY KEY, mountain VARCHAR(30) , temperature INT,wind INT, snowpack INT, snowfall INT, conditions VARCHAR(30));";
           let query2 = `INSERT INTO weather (id, mountain, temperature, snowpack, snowfall, wind, conditions) VALUES (${id}, ${resort}, ${temp}, ${snowpack}, ${snowfall}, ${wind}, '${conditions}') ON CONFLICT (id) DO UPDATE SET temperature = ${temp}, snowpack = ${snowpack}, snowfall = ${snowfall};`;
-          db.task("insert data", task => {
+          db.task("insert data", (task) => {
             return task.batch([task.any(query1), task.any(query2)]);
           })
-            .then(data => {
+            .then((data) => {
               return true;
             })
-            .catch(error => {
+            .catch((error) => {
               console.log(error);
             });
         })
-        .catch(err => {
+        .catch((err) => {
           console.log(err);
         });
     })
-    .catch(err => {
+    .catch((err) => {
       console.log(err);
     });
 }
@@ -111,13 +111,13 @@ app.get("/Home", (req, res) => {
     "CREATE TABLE IF NOT EXISTS users( user_id SERIAL PRIMARY KEY, name VARCHAR(30), email VARCHAR(30) UNIQUE, password VARCHAR(20), is18 BOOL, isDriver BOOL, car VARCHAR(50), car_color VARCHAR(20), license VARCHAR(15));";
   let query2 =
     "CREATE TABLE IF NOT EXISTS available_rides(ride_id SERIAL PRIMARY KEY,	user_id SERIAL NOT NULL,	ride_date VARCHAR(30) NOT NULL, ride_time TIME NOT NULL,	dest_mountain VARCHAR(30) NOT NULL, start_city VARCHAR(20), ride_cost SMALLINT NOT NULL, open_seats SMALLINT NOT NULL, optional_notes TEXT);";
-  db.task("insert data", task => {
+  db.task("insert data", (task) => {
     return task.batch([task.any(query1), task.any(query2)]);
   })
-    .then(data => {
+    .then((data) => {
       //do nothing
     })
-    .catch(error => {
+    .catch((error) => {
       console.log(error);
     });
   res.sendFile(path.join(__dirname, "./views", "Home.html"));
@@ -131,13 +131,13 @@ app.get("/search_rides", function (req, res) {
   var searchReq =
     "select * from available_rides where dest_mountain = '" + destMountain + "' and start_city = '" + startCity + "' and ride_date = '" + departDate + "';"; //Need to fill in names of tables and columns
   console.log(searchReq);
-  db.task("get-everything", task => {
+  db.task("get-everything", (task) => {
     return task.batch([task.any(searchReq)]);
   })
-    .then(info => {
+    .then((info) => {
       res.send(info);
     })
-    .catch(error => {
+    .catch((error) => {
       // display error message in case an error
       console.log(err);
     });
@@ -146,13 +146,13 @@ app.get("/search_rides", function (req, res) {
 app.get("/search_weather", function (req, res) {
   var weatherMountain = req.query.mountain;
   var searchReq1 = "select * from weather where mountain = '" + weatherMountain + "';";
-  db.task("get-everything", task => {
+  db.task("get-everything", (task) => {
     return task.batch([task.any(searchReq1)]);
   })
-    .then(info1 => {
+    .then((info1) => {
       res.send(info1[0]);
     })
-    .catch(error => {
+    .catch((error) => {
       // display error message in case an error
       console.log(error);
     });
@@ -162,10 +162,10 @@ app.post("/setting", (req, res) => {
   console.log("server" + req.body);
   var query = `INSERT INTO available_rides (user_id, ride_date, ride_time, dest_mountain, start_city, ride_cost, open_seats, optional_notes) VALUES (${req.body.user_id}, '${req.body.date}', '${req.body.date}', '${req.body.resort}', '${req.body.start}', ${req.body.pay}, ${req.body.slots}, '${req.body.description}');`;
   db.any(query)
-    .then(data => {
+    .then((data) => {
       console.log("inserted");
     })
-    .catch(err => {
+    .catch((err) => {
       console.log(err);
     });
   res.sendFile(path.join(__dirname, "./views", "Settings.html"));
@@ -183,7 +183,7 @@ app.post("/login", (req, res) => {
   db.any(query);
   console
     .log(query)
-    .then(data => {
+    .then((data) => {
       res.send(data);
     })
     .catch(() => {
@@ -201,7 +201,7 @@ app.get("/Settings", (req, res) => {
   //db.any('')
 });
 
-app.get("/signup", (req, res) => {
+app.post("/signup", (req, res) => {
   console.log(req.query);
   let query =
     `INSERT INTO users (name, email, password, is18, isDriver) VALUES ('${req.query.first}` +
@@ -209,12 +209,12 @@ app.get("/signup", (req, res) => {
     `${req.query.last}', '${req.query.email}', '${req.query.password}', ${req.query.is18}, ${req.query.isDriver})`;
   console.log(query);
   db.any(query)
-    .then(data => {
-      db.any(`SELECT user_id FROM users WHERE email = '${req.query.email}'`).then(data => {
+    .then((data) => {
+      db.any(`SELECT user_id FROM users WHERE email = '${req.query.email}'`).then((data) => {
         res.send(data);
       });
     })
-    .catch(err => {
+    .catch((err) => {
       console.log(err);
     });
 });
