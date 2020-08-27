@@ -11,9 +11,14 @@ function getDriverInfo(id, toggle) {
 function submitForm() {
   var dY = $("#dYes").is(":checked");
   var dN = $("#dNo").is(":checked");
+  var iY = $("#iYes").is(":checked");
+  var iN = $("#iNo").is(":checked");
   if (!(dY || dN)) {
     document.getElementById("error").innerHTML = "Please select the Driver option";
-    return -1;
+    return;
+  } else if (!(iY || iN)) {
+    document.getElementById("error").innerHTML = "Please answer the question above";
+    return;
   }
   var regEx = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
   console.log(d);
@@ -27,7 +32,7 @@ function submitForm() {
         first: first_name.value,
         last: last_name.value,
         isDriver: dY ? true : false,
-        is18: i
+        is18: iY ? true : false
       },
       success: (data) => {
         sessionStorage.setItem("user_id", data[0].user_id);
