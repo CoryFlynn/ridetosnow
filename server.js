@@ -190,8 +190,6 @@ app.post('/login', (req, res) => {
   db.any(query)
   console.log(query)
     .then( data => {
-      console.log(data);
-      //sessionStorage.setItem('myCat', 'Tom');
       res.send(data);
     })
     .catch( () => {
