@@ -98,7 +98,7 @@ function retrieveNpost(url, resort, id, url2) {
 }
 
 app.get("/", (req, res) => {
-  res.sendFile(path.join(__dirname, "./views", "Home.html"));
+  res.sendFile(path.join(__dirname, "Home.html"));
 });
 
 app.get("/Home", (req, res) => {
