@@ -9,10 +9,10 @@ function getDriverInfo(id, toggle) {
 }
 
 function submitForm() {
-  let d = document.querySelector('input[name="isDriver"]:checked').value;
-  let i = document.querySelector('input[name="is18"]:checked').value;
-  event.preventDefault();
+  var d = jQuery('$input[name="isDriver"]:checked').val();
+  var i = pjQuery('input[name="is18"]:checked').val();
   var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+  console.log(d, i);
   if (re.test(String(email.value).toLowerCase())) {
     $.ajax({
       url: `/signup`,
