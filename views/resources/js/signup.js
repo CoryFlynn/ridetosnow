@@ -34,7 +34,7 @@ function submitForm() {
         first: $("#first_name").val(),
         last: $("#last_name").val(),
         isDriver: dY ? true : false,
-        is18: iY ? true : falses
+        is18: iY ? true : false
       },
       success: (data) => {
         console.log(data);
