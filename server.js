@@ -202,11 +202,8 @@ app.get("/Settings", (req, res) => {
 });
 
 app.post("/signup", (req, res) => {
-  console.log(req);
-  let query =
-    `INSERT INTO users (name, email, password, is18, isDriver) VALUES ('${req.first}` +
-    " " +
-    `${req.query.last}', '${req.query.email}', '${req.query.password}', ${req.query.is18}, ${req.query.isDriver})`;
+  console.log(req.body);
+  let query = `INSERT INTO users (name, email, password, is18, isDriver) VALUES (${req.body.first} ${req.body.last}, ${req.body.email}, ${req.body.password}, ${req.body.is18}, ${req.body.isDriver})`;
   console.log(query);
   db.any(query)
     .then((data) => {
