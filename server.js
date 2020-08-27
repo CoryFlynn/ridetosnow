@@ -203,8 +203,7 @@ app.get("/Settings", (req, res) => {
 
 app.post("/signup", (req, res) => {
   let query = `INSERT INTO users (name, email, password, is18, isDriver) VALUES ('${req.body.first} ${req.body.last}', ${req.body.email}, ${req.body.password}, ${req.body.is18}, ${req.body.isDriver})`;
-  let q2 = `SELECT user_id FROM users WHERE email='asda'`;
-  console.log(q2);
+  let q2 = `SELECT user_id FROM users WHERE email='${req.body.email}'`;
   db.any(q2)
     .then((data) => {
       res.send("User with this email already exists");
