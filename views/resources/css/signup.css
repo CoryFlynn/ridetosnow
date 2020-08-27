@@ -72,3 +72,7 @@ h1 {
 #signupbtn {
   background-color: #152257 !important;
 }
+
+#error {
+  color: red;
+}

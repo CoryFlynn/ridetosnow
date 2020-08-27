@@ -11,7 +11,10 @@ function getDriverInfo(id, toggle) {
 function submitForm() {
   var dY = $("#dYes").is(":checked");
   var dN = $("#dNo").is(":checked");
-  console.log(dY, dN);
+  if (!(dY || dN)) {
+    document.getElementById("error").innerHTML = "Please select the Driver option";
+    return -1;
+  }
   var regEx = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
   console.log(d);
   if (regEx.test(String(email.value).toLowerCase())) {
@@ -23,7 +26,7 @@ function submitForm() {
         password: password.value,
         first: first_name.value,
         last: last_name.value,
-        isDriver: d,
+        isDriver: dY ? true : false,
         is18: i
       },
       success: (data) => {
