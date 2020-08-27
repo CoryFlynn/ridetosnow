@@ -214,7 +214,7 @@ app.post("/signup", (req, res) => {
           .then((data2) => {
             db.any(q2).then((data3) => {
               console.log(data3[0].user_id);
-              res.send(data3[0].user_id);
+              res.send(data3);
             });
           })
           .catch((err) => {
