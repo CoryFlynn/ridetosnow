@@ -16,8 +16,11 @@ function submitForm() {
   if (!(dY || dN)) {
     document.getElementById("error").innerHTML = "Please select the Driver option";
     return;
-  } else if (!(iY || iN)) {
+  } else if (dY && !(iY || iN)) {
     document.getElementById("error").innerHTML = "Please answer the question above";
+    return;
+  } else if (dY && iN) {
+    document.getElementById("error").innerHTML = "Drivers must be 18 or older";
     return;
   }
   var regEx = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
