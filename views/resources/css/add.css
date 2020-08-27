@@ -6,6 +6,9 @@ body, html {
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
 }
 .caption {
     left: 0;
