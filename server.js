@@ -208,7 +208,7 @@ app.post("/signup", (req, res) => {
   db.any(q2)
     .then((data) => {
       console.log(data[0]);
-      if (data[0]) res.send("User with this email already exists");
+      if (data[0]) res.send("Nah");
       else {
         db.any(query)
           .then((data2) => {

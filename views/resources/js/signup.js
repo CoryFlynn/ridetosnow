@@ -38,11 +38,14 @@ function submitForm() {
       },
       success: (data) => {
         console.log(data);
-        //sessionStorage.setItem("user_id", data[0].user_id);
-        $.ajax({
-          url: `/Home.html`, // the local Node server
-          method: "GET"
-        });
+        if (data == "Nah") document.getElementById("error").innerHTML = "User with this email already exists";
+        else {
+          sessionStorage.setItem("user_id", data[0].user_id);
+          $.ajax({
+            url: `/Home`, // the local Node server
+            method: "GET"
+          });
+        }
       }
     });
   }
