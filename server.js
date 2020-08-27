@@ -112,6 +112,7 @@ app.get("/Home", (req, res) => {
     "CREATE TABLE IF NOT EXISTS users( user_id SERIAL PRIMARY KEY, name VARCHAR(30), email VARCHAR(30) UNIQUE, password VARCHAR(20), is18 BOOL, isDriver BOOL, car VARCHAR(50), car_color VARCHAR(20), license VARCHAR(15));";
   let query2 =
     "CREATE TABLE IF NOT EXISTS available_rides(ride_id SERIAL PRIMARY KEY,	user_id SERIAL NOT NULL,	ride_date VARCHAR(30) NOT NULL, ride_time TIME NOT NULL,	dest_mountain VARCHAR(30) NOT NULL, start_city VARCHAR(20), ride_cost SMALLINT NOT NULL, open_seats SMALLINT NOT NULL, optional_notes TEXT);";
+  console.log("here here young king");
   db.task("insert data", (task) => {
     return task.batch([task.any(query1), task.any(query2)]);
   })
