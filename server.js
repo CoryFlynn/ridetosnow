@@ -208,17 +208,20 @@ app.post("/signup", (req, res) => {
   db.any(q2)
     .then((data) => {
       console.log(data[0]);
-      res.send("User with this email already exists");
+      if (data[0]) res.send("User with this email already exists");
+      else {
+        db.any(query)
+          .then((data2) => {
+            console.log(data2);
+            res.send(data2[0].user_id);
+          })
+          .catch((err) => {
+            console.log(err);
+          });
+      }
     })
-    .catch((data) => {
-      console.log(data[0].user_id);
-      db.any(query)
-        .then((data2) => {
-          res.send(data[0].user_id);
-        })
-        .catch((err) => {
-          console.log(err);
-        });
+    .catch((err) => {
+      console.log(err);
     });
 });
 
