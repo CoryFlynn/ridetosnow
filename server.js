@@ -202,9 +202,9 @@ app.get("/Settings", (req, res) => {
 });
 
 app.post("/signup", (req, res) => {
-  console.log(req.query);
+  console.log(req);
   let query =
-    `INSERT INTO users (name, email, password, is18, isDriver) VALUES ('${req.query.first}` +
+    `INSERT INTO users (name, email, password, is18, isDriver) VALUES ('${req.first}` +
     " " +
     `${req.query.last}', '${req.query.email}', '${req.query.password}', ${req.query.is18}, ${req.query.isDriver})`;
   console.log(query);
