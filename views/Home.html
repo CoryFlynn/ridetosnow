@@ -218,8 +218,8 @@ th, td {
         inputStartCity: inputStartCity.value,
         departDate: dateInput.value
       },
-      success: function(info){
-          console.log(info[0])
+      success: (info) => {
+          console.log(info)
           document.getElementById("rideTable").innerHTML = "<tr><th>Ride Date</th><th>Departure Time</th><th>Starting Location</th><th>Destination Mountain</th><th>Available Seats</th><th>Additional Info</th></tr><tr><td>" + info[0].ride_date + "</td><td>" + info[0].ride_time + "</td><td>" + info[0].start_city + "</td><td>" + info[0].dest_mountain + "</td><td>" + info[0].open_seats + "</td><td>" + info[0].optional_notes + "</td></tr><tr><td>" + info[1].ride_date + "</td><td>" + info[1].ride_time + "</td><td>" + info[1].start_city + "</td><td>" + info[1].dest_mountain + "</td><td>" + info[1].open_seats + "</td><td>" + info[1].optional_notes + "</td></tr>"
       }
   })
