@@ -24,10 +24,10 @@
                     <br/>
                     <form>
                       <div class="form-group">
-                        <label for="dateTime"><h5 style="color:#002266;">Date and Leave/Return Time:</h5></label>
+                        <label for="dateTime"><h5 style="color:#002266;">Date and Departure Time:</h5></label>
                         <input type="text" class="form-control" id="dateTime" aria-describedby="dateTimeHelp" placeholder="Date, times">
                         <p>
-                          E.g. 12/25/2019 8:00-5:00 <br/>
+                          Example: 12/25/2019 6:30 <br/>
                           Times are only approximations.
                         </p>
                       </div>
@@ -81,5 +81,32 @@
                     </form>     
             </span>
         </div>
+        <script>
+                function submitRide(){
+                  var date = $("#dateTime").val();
+                  var pay = $("#pay2Input").val();
+                  var slots = $("#slotsInput").val();
+                  var resort = $("#resort1").val();
+                  var description = $("#driverRideDescription").val();
+                  var start = $("#start1").val();
+                  $.ajax({
+                      method: 'POST',
+                      url: "/setting",
+                      data: {
+                        "user_id": sessionStorage.getItem('user_id'),
+                        "date": date,
+                        "pay": pay,
+                        "slots": slots,
+                        "resort": resort,
+                        "description": description,
+                        "start": start
+                      },
+                      dataType: "text"
+                  })
+                  .then(data => {
+                    console.log("html " + sessionStorage.getItem('user_id'))
+                  })
+                }
+        </script>
     </body>
 </html>

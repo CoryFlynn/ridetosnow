@@ -84,67 +84,6 @@
                       <br/>
                     </form>
                   </div>
-                  <div class="col-sm">
-                    <h3 style="color:#002266;">Add a Ride Offer</h3>
-                    <br/>
-                    <form>
-                      <div class="form-group">
-                        <label for="dateTime"><h5 style="color:#002266;">Date and Leave/Return Time:</h5></label>
-                        <input type="text" class="form-control" id="dateTime" aria-describedby="dateTimeHelp" placeholder="Date, times">
-                        <p>
-                          E.g. 12/25/2019 8:00-5:00 <br/>
-                          Times are only approximations.
-                        </p>
-                      </div>
-                      <div class="form-group">
-                        <label for="pay2Input"><h5 style="color:#002266;">Requested Pay (per rider):</h5></label>
-                        <input type="number" class="form-control" id="pay2Input" aria-describedby="pay2Help" placeholder="Amount (USD)">
-                        <p>
-                          Payment will be handled in person via venmo, cash or
-                          other preferred option.
-                        </p>
-                      </div>
-                      <div class="form-group">
-                        <label for="slotsInput"><h5 style="color:#002266;">Slots Available:</h5></label>
-                        <input type="number" class="form-control" id="slotsInput" aria-describedby="slotsHelp" placeholder="Amount">
-                      </div>
-                      <div class="form-group">
-                        <label for="resort1"><h5>Resort Destination</h5></label>
-                        <select class="form-control" id="resort1">
-                          <option>Vail</option>
-                          <option>Keystone</option>
-                          <option>Breckenridge</option>
-                          <option>Eldora</option>
-                          <option>Beaver Creek</option>
-                          <option>Steamboat</option>
-                          <option>Arapahoe Basin</option>
-                          <option>Winter Park</option>
-                          <option>Copper</option>
-                        </select>
-                      </div>
-                      <div class="form-group">
-                        <label for="resort1"><h5>Starting City</h5></label>
-                        <select class="form-control" id="start1">
-                          <option>Colorado Springs</option>
-                          <option>Denver</option>
-                          <option>Boulder</option>
-                          <option>Fort Collins</option>
-                        </select>
-                      </div>
-                      <div class="form-group">
-                        <label for="DriverRideDescription"><h4 style="color:#002266;">Contact Info and Details</h4>
-                          <p>
-                            Give your email or phone number, preferred meeting address, neighborhood or city, as well as any other
-                            details you want to share with potential riders! This could include schedule/location flexibility,
-                            vehicle type, preferred payment method, music tastes, etc.
-                          </p>
-                        </label>
-                        <textarea class="form-control" id="driverRideDescription" rows="20"></textarea>
-                      </div>
-                    <button type="button" class="btn btn-info" onclick="submitRide();">Submit Ride Offer</button>
-                    <br/><br/>
-                    </form>
-                  </div>
                 </div>
               </div>
             </div>
@@ -154,31 +93,6 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
         <script>
-        function submitRide(){
-          var date = $("#dateTime").val();
-          var pay = $("#pay2Input").val();
-          var slots = $("#slotsInput").val();
-          var resort = $("#resort1").val();
-          var description = $("#driverRideDescription").val();
-          var start = $("#start1").val();
-          $.ajax({
-              method: 'POST',
-              url: "/setting",
-              data: {
-                "user_id": sessionStorage.getItem('user_id'),
-                "date": date,
-                "pay": pay,
-                "slots": slots,
-                "resort": resort,
-                "description": description,
-                "start": start
-              },
-              dataType: "text"
-          })
-          .then(data => {
-            console.log("html " + sessionStorage.getItem('user_id'))
-          })
-        }
         //name , email, password, age INT, car, car_color, license;";
         function submitInfo(){
           var name = $("#fullName").val();
