@@ -34,7 +34,8 @@ function submitForm() {
         is18: iY ? true : false
       },
       success: (data) => {
-        sessionStorage.setItem("user_id", data[0].user_id);
+        console.log(data);
+        //sessionStorage.setItem("user_id", data[0].user_id);
         $.ajax({
           url: `/Home.html`, // the local Node server
           method: "GET"

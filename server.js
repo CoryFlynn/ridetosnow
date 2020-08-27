@@ -207,20 +207,18 @@ app.post("/signup", (req, res) => {
   console.log(q2);
   db.any(q2)
     .then((data) => {
+      res.send("User with this email already exists");
+    })
+    .catch((data) => {
       console.log(data[0].user_id);
-    })
-    .catch((err) => {
-      console.log("Error");
+      db.any(query)
+        .then((data2) => {
+          res.send(data[0].user_id);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
     });
-  /*      db.any(query)
-    .then((data) => {
-      db.any(`SELECT user_id FROM users WHERE email = '${req.query.email}'`).then((data) => {
-        res.send(data);
-      });
-    })
-    .catch((err) => {
-      console.log(err);
-    }); */
 });
 
 app.get("/Profile", (req, res) => {
