@@ -212,8 +212,10 @@ app.post("/signup", (req, res) => {
       else {
         db.any(query)
           .then((data2) => {
-            console.log(data2);
-            res.send(data2[0].user_id);
+            db.any(q2).then((data3) => {
+              console.log(data3[0].user_id);
+              res.send(data3[0].user_id);
+            });
           })
           .catch((err) => {
             console.log(err);
