@@ -203,7 +203,7 @@ app.get("/Settings", (req, res) => {
 
 app.post("/signup", (req, res) => {
   let query = `INSERT INTO users (name, email, password, is18, isDriver) VALUES ('${req.body.first} ${req.body.last}', ${req.body.email}, ${req.body.password}, ${req.body.is18}, ${req.body.isDriver})`;
-  let q2 = `SELECT user_id FROM users WHERE email=${req.body.email}`;
+  let q2 = `SELECT user_id FROM users WHERE email='${req.body.email}'`;
   console.log(q2);
   db.any(q2)
     .then((data) => {
