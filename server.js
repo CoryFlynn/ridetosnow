@@ -207,10 +207,10 @@ app.post("/signup", (req, res) => {
   console.log(q2);
   db.any(q2)
     .then((data) => {
-      console.log(data, req);
+      console.log(data);
     })
     .catch((err) => {
-      console.log(err);
+      console.log("Error");
     });
   /*      db.any(query)
     .then((data) => {
