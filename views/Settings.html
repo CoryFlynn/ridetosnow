@@ -1,98 +1,101 @@
-
 <!DOCTYPE html>
-    <html>
-      <head>
-        <title>Settings</title>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="resources/css/add.css"/>
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-      </head>
-      <body style="background-color:#ffffff;">
-        <ul>
-            <li><a href= "Home.html">Home</a></li>
-            <li><a href="Signup.html">Signup</a></li>
-            <li><a href="Login.html">Login</a></li>
-            <li><a href="Profile.html">Profile</a></li>
-            <li style="float:right;"><a href="FAQ.html" class="active">FAQ</a></li>
-            <li style="float:right;"><a href="Settings.html">Settings</a></li>
-            <li style="float: right;"><a href="Add.html">Add Ride</a> </li>
-        </ul>
-        <div class="container">
-          <div class="row">
-            <div class="col-sm">
-              <h1 style="color:#002266;">Settings</h1>
-              <p style="color:#002266;">
-                Use this page to adjust your settings and offer or request
-                rides to and from people near you!
-              </p>
-              <br/>
-              <div class="container">
-                <div class="row">
-                  <div class="col-sm">
-                    <h3 style="color:#002266;">General Settings</h3>
-                    <br/>
-                    <form>
-                      <div class="form-group">
-                        <label for="fullName"><h5 style="color:#002266;">Full Name:</h5></label>
-                        <input type="text" class="form-control" id="fullName" aria-describedby="nameHelp" placeholder="Name">
-                      </div>
-                      <div class="form-group">
-                        <label for="ageInput" style="color:#002266;"><h5>Age:</h5></label>
-                        <input type="number" class="form-control" id="ageInput" aria-describedby="ageHelp" placeholder="Age">
-                      </div>
-                      <div class="form-group">
-                        <label for="carInput" style="color:#002266;"><h5>Car Type:</h5></label>
-                        <input type="text" class="form-control" id="carInput" aria-describedby="carHelp" placeholder="Type">
-                      </div>
-                      <div class="form-group"> <!--Remove Later if GPS unecessary, match by city instead-->
-                        <label for="carColorInput" style="color:#002266;"><h5>Car Color:</h5></label>
-                        <input type="text" class="form-control" id="carColorInput" aria-describedby="colorHelp" placeholder="Color">
-                      </div>
-                      <div class="form-group"> <!--Remove Later if GPS unecessary, match by city instead-->
-                        <label for="licenseInput" style="color:#002266;"><h5>License:</h5></label>
-                        <input type="text" class="form-control" id="licenseInput" aria-describedby="licenseHelp" placeholder="License">
-                      </div>
-                      <button type="button" class="btn btn-info" onclick="submitInfo();">Save Changes</button>
-                      <br/>
-                    </form>
+<html>
+  <head>
+    <title>Settings</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="resources/css/add.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  </head>
+  <body style="background-color: #ffffff">
+    <ul>
+      <li><a href="Home.html">Home</a></li>
+      <li><a href="Signup.html">Signup</a></li>
+      <li><a href="Login.html">Login</a></li>
+      <li><a href="Profile.html">Profile</a></li>
+      <li style="float: right"><a href="FAQ.html" class="active">FAQ</a></li>
+      <li style="float: right"><a href="Settings.html">Settings</a></li>
+      <li style="float: right"><a href="Add.html">Add Ride</a></li>
+    </ul>
+    <div class="container">
+      <div class="row">
+        <div class="col-sm">
+          <h1 style="color: #002266">Settings</h1>
+          <p style="color: #002266">Use this page to adjust your settings and offer or request rides to and from people near you!</p>
+          <br />
+          <div class="container">
+            <div class="row">
+              <div class="col-sm">
+                <h3 style="color: #002266">General Settings</h3>
+                <br />
+                <form>
+                  <div class="form-group">
+                    <label for="fullName"><h5 style="color: #002266">Full Name:</h5></label>
+                    <input type="text" class="form-control" id="fullName" aria-describedby="nameHelp" placeholder="Name" />
                   </div>
-                </div>
+                  <div class="form-group">
+                    <label for="ageInput" style="color: #002266"><h5>Age:</h5></label>
+                    <input type="number" class="form-control" id="ageInput" aria-describedby="ageHelp" placeholder="Age" />
+                  </div>
+                  <div class="form-group">
+                    <label for="carInput" style="color: #002266"><h5>Car Type:</h5></label>
+                    <input type="text" class="form-control" id="carInput" aria-describedby="carHelp" placeholder="Type" />
+                  </div>
+                  <div class="form-group">
+                    <!--Remove Later if GPS unecessary, match by city instead-->
+                    <label for="carColorInput" style="color: #002266"><h5>Car Color:</h5></label>
+                    <input type="text" class="form-control" id="carColorInput" aria-describedby="colorHelp" placeholder="Color" />
+                  </div>
+                  <div class="form-group">
+                    <!--Remove Later if GPS unecessary, match by city instead-->
+                    <label for="licenseInput" style="color: #002266"><h5>License:</h5></label>
+                    <input type="text" class="form-control" id="licenseInput" aria-describedby="licenseHelp" placeholder="License" />
+                  </div>
+                  <button type="button" class="btn btn-info" onclick="submitInfo();">Save Changes</button>
+                  <br />
+                </form>
               </div>
             </div>
           </div>
         </div>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-        <script>
-        //name , email, password, age INT, car, car_color, license;";
-        function submitInfo(){
-          var name = $("#fullName").val();
-          var age = $("#ageInput").val();
-          var car = $("#carInput").val();
-          var carColor = $("#carColorInput").val();
-          var license = $("#licenseInput").val();
-          $.ajax({
-            method: 'POST',
-            url: "/setting",  // the local Node server, change later?
-            data: {
-              "user_id": sessionStorage.getItem('user_id'),
-              "name": name,
-              "age": age,
-              "car": car,
-              "carColor": carColor,
-              "license": license
-            },
-            dataType: "text"
-          })
-          .then(data => {
-
-          })
-        }
-        </script>
-      </body>
-    </html>
+      </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.js"></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+      crossorigin="anonymous"
+    ></script>
+    <script>
+      //name , email, password, age INT, car, car_color, license;";
+      function submitInfo() {
+        var name = $("#fullName").val();
+        var age = $("#ageInput").val();
+        var car = $("#carInput").val();
+        var carColor = $("#carColorInput").val();
+        var license = $("#licenseInput").val();
+        $.ajax({
+          method: "POST",
+          url: "/setting", // the local Node server, change later?
+          data: {
+            user_id: sessionStorage.getItem("user_id"),
+            name: name,
+            age: age,
+            car: car,
+            carColor: carColor,
+            license: license
+          },
+          dataType: "text"
+        }).then((data) => {});
+      }
+    </script>
+  </body>
+</html>
