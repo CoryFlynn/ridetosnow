@@ -59,7 +59,7 @@ var beav = JSON.parse('{"name": "Beaver Creek", "lat": "39.6042", "lng": "-106.5
 var steam = JSON.parse('{"name": "Steamboat Springs", "lat": "40.4850", "lng": "-106.8317"}');
 var key = JSON.parse('{"name": "Keystone", "lat": "39.5792", "lng": "-105.9347"}');
 var abay = JSON.parse('{"name": "Arapahoe Basin", "lat": "39.6425", "lng": "-105.8719"}');
-var copp = JSON.parse('{"name": "Copper", "lat": "39.5021", "lng": "106.1510"}');
+var copp = JSON.parse('{"name": "Copper", "lat": "39.5021", "lng": "-106.1510"}');
 var winter = JSON.parse('{"name": "Winter Park", "lat": "39.8917", "lng": "-105.7631"}');
 var resorts = [eldo, breck, vail, beav, steam, key, abay, copp, winter];
 
@@ -69,8 +69,8 @@ function retrieveNpost(url, resort, id, url2) {
     .then((res) => {
       let data = JSON.parse(res)[0].data[1];
       console.log(resort, data);
-      let snowpack = data["Snow Depth (in)"];
-      let snowfall = data["Change In Snow Depth (in)"];
+      let snowpack = data["Snow Depth (in)"] ? data["Snow Depth (in)"] : null;
+      let snowfall = data["Change In Snow Depth (in)"] ? data["Change In Snow Depth (in)"] : null;
       let temp = data["Observed Air Temperature (degrees farenheit)"];
       rp.get(url2)
         .then((res2) => {
