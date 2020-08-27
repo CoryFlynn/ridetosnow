@@ -68,7 +68,7 @@ function retrieveNpost(url, resort, id, url2) {
   rp.get(url)
     .then((res) => {
       let data = JSON.parse(res)[0].data[1];
-      console.log("data", data);
+      console.log(resort, data);
       let snowpack = data["Snow Depth (in)"];
       let snowfall = data["Change In Snow Depth (in)"];
       let temp = data["Observed Air Temperature (degrees farenheit)"];
