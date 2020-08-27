@@ -12,7 +12,9 @@
     "request-promise": "^4.2.5",
     "request": "^2.88.0"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "prettier": "2.1.1"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js"

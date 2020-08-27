@@ -1,229 +1,190 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta charset="UTF-8">
-<!------>
-<link href="resources/css/weather_scroll.css" rel="stylesheet">
-<!------>
-<style>
-body, html {
-  height: 100%;
-  margin: 0;
-}
+  <head>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta charset="UTF-8" />
+    <link href="resources/css/weather_scroll.css" rel="stylesheet" />
+    <link href="resources/css/add.css" rel="stylesheet" />
+  </head>
+  <body>
+    <div class="bg"></div>
+    <div class="caption">
+      <span class="border">SKI LIFT</span>
+    </div>
 
-.bg {
-  background-image: url("resources/img/adventure-alpine-alps-414459.jpg");
-  height: 30%;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  opacity: 0.7;
-}
+    <ul>
+      <li><a href="Home.html">Home</a></li>
+      <li><a href="Signup.html">Signup</a></li>
+      <li><a href="Login.html">Login</a></li>
+      <li><a href="Profile.html">Profile</a></li>
+      <li style="float:right;"><a href="FAQ.html" class="active">FAQ</a></li>
+      <li style="float:right;"><a href="Settings.html">Settings</a></li>
+      <li style="float: right;"><a href="Add.html">Add Ride</a></li>
+    </ul>
+    <div class="description">
+      Ski Lift is the #1 ridesharing app for Colorado skiiers and boarders.<br />
+      Search now to find rides to your favorite local slopes.
+    </div>
+    <div class="heading">Search For Rides</div>
+    <form action="/search_rides" method="get">
+      <div class="input-group mb-3">
+        <select
+          class="custom-select"
+          id="inputResortDest"
+          name="inputResortDest"
+        >
+          <option selected>Select a Ski Resort Destination</option>
+          <option value="Winter Park">Winter Park</option>
+          <option value="Breckenridge">Breckenridge</option>
+          <option value="Steamboat Springs">Steamboat Springs</option>
+          <option value="Eldora">Eldora</option>
+          <option value="Copper">Copper</option>
+          <option value="Vail">Vail</option>
+          <option value="Beaver Creek">Beaver Creek</option>
+          <option value="Keystone">Keystone</option>
+          <option value="Arapahoe Basin">Arapahoe Basin</option>
+        </select>
+      </div>
 
-.caption {
-  position: absolute;
-  left: 0;
-  top: 15%;
-  width: 100%;
-  text-align: center;
-  color: #000;
-}
+      <div class="input-group mb-3">
+        <select class="custom-select" id="inputStartCity" name="inputStartCity">
+          <option selected>Select Starting City</option>
+          <option value="Colorado Springs">Colorado Springs</option>
+          <option value="Denver">Denver</option>
+          <option value="Boulder">Boulder</option>
+          <option value="Fort Collins">Fort Collins</option>
+        </select>
+      </div>
 
-.caption span.border {
-  background-color: #111;
-  color: #fff;
-  padding: 18px;
-  font-size: 25px;
-  font-style: normal;
-  letter-spacing: 10px;
-}
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="basic-addon1">Ride Date</span>
+        </div>
+        <input
+          name="dateInput"
+          type="date"
+          class="form-control"
+          placeholder="MM/DD/YYYY"
+          aria-label="Username"
+          aria-describedby="basic-addon1"
+          id="dateInput"
+        />
+      </div>
 
-ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-  background-color: #333;
-}
+      <button type="submit" class="btn btn-secondary" onclick="">Search</button>
+    </form>
+    <table style="width:100%; margin:5px" id="rideTable"></table>
 
-li {
-  float: left;
-}
+    <div class="asuh">
+      <div class="heading">Weather Forecast</div>
+      <div class="input-group mb-3" id="asuh">
+        <select
+          class="custom-select"
+          id="inputWeatherResort"
+          onchange="getWeather()"
+        >
+          <option selected
+            >Select a Ski Resort To Recieve Weather Report</option
+          >
+          <option value="Winter Park">Winter Park</option>
+          <option value="Breckenridge">Breckenridge</option>
+          <option value="Steamboat Springs">Steamboat Springs</option>
+          <option value="Eldora">Eldora</option>
+          <option value="Copper">Copper</option>
+          <option value="Vail">Vail</option>
+          <option value="Beaver Creek">Beaver Creek</option>
+          <option value="Keystone">Keystone</option>
+          <option value="Arapahoe Basin">Arapahoe Basin</option>
+        </select>
+      </div>
+    </div>
 
-li a {
-  display: block;
-  color: white;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-}
+    <div class="scroll-left">
+      <p id="weather">Please Select A Mountain For Conditions</p>
+    </div>
 
-li a:hover {
-  background-color: #111;
-}
-
-.active {
-  background-color: #3236A8;
-}
-
-.description {
-  color: white;
-  font-size: 17px;
-  font-style: normal;
-  text-align: center;
-  font-weight: bold;
-  font-family: Noto Sans, sans-serif;
-  background-color: #152257;
-  padding: 10px 10px;
-}
-
-.heading {
-  color: white;
-  font-size: 25px;
-  text-align:left;
-  padding-left: 25px;
-  padding-top: 15px;
-  padding-bottom: 15px;
-  width: 25%;
-  background-color: #333;
-  margin-top: 10px;
-}
-
-.custom-select {
-  margin-bottom: 0px !important;
-}
-
-table, th, td {
-  border: 1px solid black;
-  border-collapse: collapse;
-}
-th, td {
-  padding: 15px;
-}
-
-</style>
-</head>
-<body>
-
-<div class="bg"></div>
-<div class="caption">
-  <span class="border">SKI LIFT</span>
-</div>
-
-<ul>
-  <li><a href= "Home.html">Home</a></li>
-  <li><a href="Signup.html">Signup</a></li>
-  <li><a href="Login.html">Login</a></li>
-  <li><a href="Profile.html">Profile</a></li>
-  <li style="float:right;"><a href="FAQ.html" class="active">FAQ</a></li>
-  <li style="float:right;"><a href="Settings.html">Settings</a></li>
-  <li style="float: right;"><a href="Add.html">Add Ride</a> </li>
-</ul>
-<div class="description">Ski Lift is the #1 ridesharing app for Colorado skiiers and boarders.<br>
-   Search now to find rides to your favorite local slopes.</div>
-<div class="heading">Search For Rides</div>
-<form action="/search_rides" method="get">
-
-<div class="input-group mb-3">
-  <select class="custom-select" id="inputResortDest" name="inputResortDest">
-    <option selected>Select a Ski Resort Destination</option>
-    <option value="Winter Park">Winter Park</option>
-    <option value="Breckenridge">Breckenridge</option>
-    <option value="Steamboat Springs">Steamboat Springs</option>
-    <option value="Eldora">Eldora</option>
-    <option value="Copper">Copper</option>
-    <option value="Vail">Vail</option>
-    <option value="Beaver Creek">Beaver Creek</option>
-    <option value="Keystone">Keystone</option>
-    <option value="Arapahoe Basin">Arapahoe Basin</option>
-  </select>
-</div>
-
-<div class="input-group mb-3">
-  <select class="custom-select" id="inputStartCity" name="inputStartCity">
-    <option selected>Select Starting City</option>
-    <option value="Colorado Springs">Colorado Springs</option>
-    <option value="Denver">Denver</option>
-    <option value="Boulder">Boulder</option>
-    <option value="Fort Collins">Fort Collins</option>
-  </select>
-</div>
-
-<div class="input-group mb-3">
-  <div class="input-group-prepend">
-    <span class="input-group-text" id="basic-addon1">Ride Date</span>
-  </div>
-  <input name="dateInput" type="date" class="form-control" placeholder="MM/DD/YYYY" aria-label="Username" aria-describedby="basic-addon1" id="dateInput">
-</div>
-
-
-<button type="submit" class="btn btn-secondary" onclick="">Search</button>
-
-</form>
-<table style="width:100%; margin:5px" id="rideTable">
-</table>
-
-<div class="asuh">
-  <div class= "heading">Weather Forecast</div>
-  <div class="input-group mb-3" id="asuh">
-    <select class="custom-select" id="inputWeatherResort" onchange="getWeather()">
-      <option selected>Select a Ski Resort To Recieve Weather Report</option>
-      <option value="Winter Park">Winter Park</option>
-      <option value="Breckenridge">Breckenridge</option>
-      <option value="Steamboat Springs">Steamboat Springs</option>
-      <option value="Eldora">Eldora</option>
-      <option value="Copper">Copper</option>
-      <option value="Vail">Vail</option>
-      <option value="Beaver Creek">Beaver Creek</option>
-      <option value="Keystone">Keystone</option>
-      <option value="Arapahoe Basin">Arapahoe Basin</option>
-    </select>
-  </div>
-</div>
-
-<!----->
-<div class="scroll-left">
-  <p id="weather"> Please Select A Mountain For Conditions </p>
-</div>
-<!----->
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-<script>
-  function getWeather() {
-    let m = document.getElementById("inputWeatherResort").value;
-    $.ajax({
-        url: `https://ski-lift-site.herokuapp.com/search_weather`,
-        method: 'GET',
-        data: {
-          mountain: m },
-        success: function(data){
-            const st = `Resort: ${data[0].mountain}, Conditions: ${data[0].conditions}, Snowpack: ${data[0].snowpack ? data[0].snowpack : 0} in. , Snow over last 24: ${data[0].snowfall ? data[0].snowfall : 0} in. , Temperature: ${data[0].temperature}°F, Wind: ${data[0].wind}mph`;
-            document.getElementById("weather").innerHTML= st
-            console.log(st)
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.js"></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+      crossorigin="anonymous"
+    ></script>
+    <script>
+      function getWeather() {
+        let m = document.getElementById("inputWeatherResort").value;
+        $.ajax({
+          url: `https://ski-lift-site.herokuapp.com/search_weather`,
+          method: "GET",
+          data: {
+            mountain: m
+          },
+          success: function(data) {
+            const st = `Resort: ${data[0].mountain}, Conditions: ${
+              data[0].conditions
+            }, Snowpack: ${
+              data[0].snowpack ? data[0].snowpack : 0
+            } in. , Snow over last 24: ${
+              data[0].snowfall ? data[0].snowfall : 0
+            } in. , Temperature: ${data[0].temperature}°F, Wind: ${
+              data[0].wind
+            }mph`;
+            document.getElementById("weather").innerHTML = st;
+            console.log(st);
           }
-    })
-
-}
-  $("form").submit( ()=> {
-    event.preventDefault();
-    $.ajax({
-      url: "/search_rides",
-      method: 'GET',
-      data: {
-        inputResortDest: inputResortDest.value,
-        inputStartCity: inputStartCity.value,
-        departDate: dateInput.value
-      },
-      success: (info) => {
-          console.log(info)
-          document.getElementById("rideTable").innerHTML = "<tr><th>Ride Date</th><th>Departure Time</th><th>Starting Location</th><th>Destination Mountain</th><th>Available Seats</th><th>Additional Info</th></tr><tr><td>" + info[0].ride_date + "</td><td>" + info[0].ride_time + "</td><td>" + info[0].start_city + "</td><td>" + info[0].dest_mountain + "</td><td>" + info[0].open_seats + "</td><td>" + info[0].optional_notes + "</td></tr><tr><td>" + info[1].ride_date + "</td><td>" + info[1].ride_time + "</td><td>" + info[1].start_city + "</td><td>" + info[1].dest_mountain + "</td><td>" + info[1].open_seats + "</td><td>" + info[1].optional_notes + "</td></tr>"
+        });
       }
-  })
-            });   
-</script>
-</body>
+      $("form").submit(() => {
+        event.preventDefault();
+        $.ajax({
+          url: "/search_rides",
+          method: "GET",
+          data: {
+            inputResortDest: inputResortDest.value,
+            inputStartCity: inputStartCity.value,
+            departDate: dateInput.value
+          },
+          success: info => {
+            console.log(info);
+            document.getElementById("rideTable").innerHTML =
+              "<tr><th>Ride Date</th><th>Departure Time</th><th>Starting Location</th><th>Destination Mountain</th><th>Available Seats</th><th>Additional Info</th></tr><tr><td>" +
+              info[0].ride_date +
+              "</td><td>" +
+              info[0].ride_time +
+              "</td><td>" +
+              info[0].start_city +
+              "</td><td>" +
+              info[0].dest_mountain +
+              "</td><td>" +
+              info[0].open_seats +
+              "</td><td>" +
+              info[0].optional_notes +
+              "</td></tr><tr><td>" +
+              info[1].ride_date +
+              "</td><td>" +
+              info[1].ride_time +
+              "</td><td>" +
+              info[1].start_city +
+              "</td><td>" +
+              info[1].dest_mountain +
+              "</td><td>" +
+              info[1].open_seats +
+              "</td><td>" +
+              info[1].optional_notes +
+              "</td></tr>";
+          }
+        });
+      });
+    </script>
+  </body>
 </html>
