@@ -203,12 +203,13 @@ app.get("/Settings", (req, res) => {
 
 app.post("/signup", (req, res) => {
   let query = `INSERT INTO users (name, email, password, is18, isDriver) VALUES ('${req.body.first} ${req.body.last}', ${req.body.email}, ${req.body.password}, ${req.body.is18}, ${req.body.isDriver})`;
-  console.log(query);
-  /*   db.any(`SELECT user_id FROM users WHERE email=${req.body.email}`).then(
+  let q2 = `SELECT user_id FROM users WHERE email=${req.body.email}`;
+  console.log(q2);
+  db.any(q2).then(
     (data) => {
       console.log(data, req);
-    } */
-  /* db.any(query)
+    }
+    /* db.any(query)
     .then((data) => {
       db.any(`SELECT user_id FROM users WHERE email = '${req.query.email}'`).then((data) => {
         res.send(data);
@@ -217,7 +218,7 @@ app.post("/signup", (req, res) => {
     .catch((err) => {
       console.log(err);
     }); */
-  //);
+  );
 });
 
 app.get("/Profile", (req, res) => {
