@@ -127,9 +127,9 @@ app.get('/Home', (req, res) => {
 
 app.get('/search_rides', function(req, res) {
   console.log(req.query)
-	var destMountain = req.query.inputResortDest;
-	var startCity = req.query.inputStartCity;
-	var departDate = req.query.departDate;
+	var destMountain = req.inputResortDest;
+	var startCity = req.inputStartCity;
+	var departDate = req.departDate;
   var searchReq = "select * from available_rides where dest_mountain = '" + destMountain + "' and start_city = '" + startCity + "' and ride_date = '" + departDate + "';"; //Need to fill in names of tables and columns
   console.log(searchReq)
   db.task('get-everything', task => {
