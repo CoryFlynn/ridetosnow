@@ -217,7 +217,7 @@ app.post("/signup", (req, res) => {
     .catch((err) => {
       console.log(err);
     }); */
-});
+);
 
 app.get("/Profile", (req, res) => {
   res.sendFile(path.join(__dirname, "./views", "Profile.html"));
