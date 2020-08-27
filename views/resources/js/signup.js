@@ -27,7 +27,7 @@ function submitForm() {
       url: `/signup`,
       method: "POST",
       data: {
-        email: $("email").val(),
+        email: $("#email").val(),
         password: password.value,
         first: first_name.value,
         last: last_name.value,
