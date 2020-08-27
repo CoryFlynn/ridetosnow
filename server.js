@@ -206,7 +206,7 @@ app.post("/signup", (req, res) => {
   console.log(query);
   db.any(`SELECT user_id FROM users WHERE email=${req.body.email}`)
     .then((data) => {
-      console.log(data)
+      console.log(data, req)
     }
   /* db.any(query)
     .then((data) => {
