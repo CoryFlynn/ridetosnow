@@ -43,7 +43,7 @@ function submitForm() {
           console.log("worked");
           sessionStorage.setItem("user_id", data[0].user_id);
           $.ajax({
-            url: `/`, // Home Page
+            url: `/Home`, // Home Page
             method: "GET"
           });
         }
