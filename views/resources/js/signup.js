@@ -40,6 +40,7 @@ function submitForm() {
         console.log(data);
         if (data == "Nah") document.getElementById("error").innerHTML = "User with this email already exists";
         else {
+          console.log("worked");
           sessionStorage.setItem("user_id", data[0].user_id);
           $.ajax({
             url: `/`, // Home Page
