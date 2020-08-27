@@ -42,7 +42,7 @@ function submitForm() {
         else {
           sessionStorage.setItem("user_id", data[0].user_id);
           $.ajax({
-            url: `/Home`, // the local Node server
+            url: `/`, // the local Node server
             method: "GET"
           });
         }
