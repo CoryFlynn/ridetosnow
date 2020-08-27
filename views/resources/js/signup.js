@@ -9,8 +9,8 @@ function getDriverInfo(id, toggle) {
 }
 
 function submitForm() {
-  var d = jQuery("$isDriver").val();
-  var i = jQuery("is18").val();
+  var d = jQuery("#isDriver").val();
+  var i = jQuery("#is18").val();
   var regEx = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
   console.log(d, i);
   if (regEx.test(String(email.value).toLowerCase())) {
