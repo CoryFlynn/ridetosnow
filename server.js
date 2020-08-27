@@ -138,7 +138,7 @@ app.get('/search_rides', function(req, res) {
         ]);
     })
     .then(info => {
-    	res.send(info[0])
+    	res.send(info)
     })
     .catch(error => {
         // display error message in case an error
