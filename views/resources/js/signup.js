@@ -21,7 +21,7 @@ function submitForm() {
     return;
   }
   var regEx = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-  console.log($("email").val());
+  console.log($("email").value);
   if (regEx.test(String(email.value).toLowerCase())) {
     $.ajax({
       url: `/signup`,
