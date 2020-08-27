@@ -7,6 +7,7 @@ html {
     background-repeat: no-repeat;
     background-size: cover;
     overflow: hidden;
+    z-index: 1;
 }
 .caption {
     left: 0;
@@ -16,6 +17,7 @@ html {
     color: #000;
     margin-top: 80px;
     margin-bottom: 140px;
+    z-index: 2;
 }
 .caption span.border {
     background-color: #111;
@@ -24,6 +26,7 @@ html {
     font-size: 25px;
     font-style: normal;
     letter-spacing: 10px;
+    z-index: 3;
 }
 
 h1 {
