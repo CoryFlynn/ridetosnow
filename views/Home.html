@@ -30,9 +30,9 @@
       <li><a href="Signup.html">Signup</a></li>
       <li><a href="Login.html">Login</a></li>
       <li><a href="Profile.html">Profile</a></li>
-      <li style="float:right;"><a href="FAQ.html" class="active">FAQ</a></li>
-      <li style="float:right;"><a href="Settings.html">Settings</a></li>
-      <li style="float: right;"><a href="Add.html">Add Ride</a></li>
+      <li style="float: right"><a href="FAQ.html" class="active">FAQ</a></li>
+      <li style="float: right"><a href="Settings.html">Settings</a></li>
+      <li style="float: right"><a href="Add.html">Add Ride</a></li>
     </ul>
     <div class="description">
       Ski Lift is the #1 ridesharing app for Colorado skiiers and boarders.<br />
@@ -42,7 +42,7 @@
     <form action="/search_rides" method="get">
       <div class="input-group mb-3">
         <select class="custom-select" id="inputResortDest" name="inputResortDest">
-          <option selected>Select a Ski Resort Destination</option>
+          <option selected hidden="true">Select a Ski Resort Destination</option>
           <option value="Winter Park">Winter Park</option>
           <option value="Breckenridge">Breckenridge</option>
           <option value="Steamboat Springs">Steamboat Springs</option>
@@ -82,7 +82,7 @@
 
       <button type="submit" class="btn btn-secondary" onclick="">Search</button>
     </form>
-    <table style="width:100%; margin:5px" id="rideTable"></table>
+    <table style="width: 100%; margin: 5px" id="rideTable"></table>
 
     <div class="asuh">
       <div class="heading">Weather Forecast</div>
