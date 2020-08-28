@@ -42,10 +42,7 @@ function submitForm() {
         else {
           console.log("worked");
           sessionStorage.setItem("user_id", data[0].user_id);
-          $.ajax({
-            url: `/Home`, // Home Page
-            method: "GET"
-          });
+          window.location.href = "Home.html";
         }
       }
     });
