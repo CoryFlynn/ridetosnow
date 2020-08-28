@@ -38,50 +38,52 @@
       Ski Lift is the #1 ridesharing app for Colorado skiiers and boarders.<br />
       Search now to find rides to your favorite local slopes.
     </div>
-    <div class="heading">Search For Rides</div>
-    <form action="/search_rides" method="get">
-      <div class="input-group mb-3">
-        <select class="custom-select" id="inputResortDest" name="inputResortDest" hidden="true">
-          <option selected>Select a Ski Resort Destination</option>
-          <option value="Winter Park">Winter Park</option>
-          <option value="Breckenridge">Breckenridge</option>
-          <option value="Steamboat Springs">Steamboat Springs</option>
-          <option value="Eldora">Eldora</option>
-          <option value="Copper">Copper</option>
-          <option value="Vail">Vail</option>
-          <option value="Beaver Creek">Beaver Creek</option>
-          <option value="Keystone">Keystone</option>
-          <option value="Arapahoe Basin">Arapahoe Basin</option>
-        </select>
-      </div>
-
-      <div class="input-group mb-3">
-        <select class="custom-select" id="inputStartCity" name="inputStartCity">
-          <option selected>Select Starting City</option>
-          <option value="Colorado Springs">Colorado Springs</option>
-          <option value="Denver">Denver</option>
-          <option value="Boulder">Boulder</option>
-          <option value="Fort Collins">Fort Collins</option>
-        </select>
-      </div>
-
-      <div class="input-group mb-3">
-        <div class="input-group-prepend">
-          <span class="input-group-text" id="basic-addon1">Ride Date</span>
+    <div id = "searchContainer">
+      <div class="heading" id = >Search For Rides</div>
+      <form action="/search_rides" method="get">
+        <div class="input-group mb-3">
+          <select class="custom-select" id="inputResortDest" name="inputResortDest">
+            <option selected>Select a Ski Resort Destination</option>
+            <option value="Winter Park">Winter Park</option>
+            <option value="Breckenridge">Breckenridge</option>
+            <option value="Steamboat Springs">Steamboat Springs</option>
+            <option value="Eldora">Eldora</option>
+            <option value="Copper">Copper</option>
+            <option value="Vail">Vail</option>
+            <option value="Beaver Creek">Beaver Creek</option>
+            <option value="Keystone">Keystone</option>
+            <option value="Arapahoe Basin">Arapahoe Basin</option>
+          </select>
         </div>
-        <input
-          name="dateInput"
-          type="date"
-          class="form-control"
-          placeholder="MM/DD/YYYY"
-          aria-label="Username"
-          aria-describedby="basic-addon1"
-          id="dateInput"
-        />
-      </div>
 
-      <button type="submit" class="btn btn-secondary" onclick="">Search</button>
-    </form>
+        <div class="input-group mb-3">
+          <select class="custom-select" id="inputStartCity" name="inputStartCity">
+            <option selected>Select Starting City</option>
+            <option value="Colorado Springs">Colorado Springs</option>
+            <option value="Denver">Denver</option>
+            <option value="Boulder">Boulder</option>
+            <option value="Fort Collins">Fort Collins</option>
+          </select>
+        </div>
+
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <span class="input-group-text" id="basic-addon1">Ride Date</span>
+          </div>
+          <input
+            name="dateInput"
+            type="date"
+            class="form-control"
+            placeholder="MM/DD/YYYY"
+            aria-label="Username"
+            aria-describedby="basic-addon1"
+            id="dateInput"
+          />
+        </div>
+
+        <button type="submit" class="btn btn-secondary" onclick="">Search</button>
+      </form>
+    </div>
     <table style="width: 100%; margin: 5px" id="rideTable"></table>
 
     <div class="asuh">
