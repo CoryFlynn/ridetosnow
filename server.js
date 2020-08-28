@@ -178,13 +178,11 @@ app.get("/Login", (req, res) => {
 });
 
 app.post("/login", (req, res) => {
-  console.log("server " + req.query);
-  let email = req.query.email;
-  let password = req.query.password;
+  console.log("server " + req.body);
+  let email = req.body.email;
+  let password = req.body.password;
   let query = `SELECT user_id FROM users WHERE email = '${email}' AND password = '${password}';`;
-  db.any(query);
-  console
-    .log(query)
+  db.any(query)
     .then((data) => {
       res.send(data);
     })

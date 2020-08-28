@@ -12,18 +12,6 @@
       crossorigin="anonymous"
     />
     <link href="./resources/css/signin.css" rel="stylesheet" />
-  </head>
-  <body class="center text-center">
-    <form class="form-signin" action="/login" method="GET">
-      <h1>Sign In</h1>
-      <label> Email Address </label>
-      <input name="email" class="form-control" id="inputEmail" />
-      <label> Password </label>
-      <input name="password" class="form-control" id="inputPassword" type="password" />
-      <p id="error"></p>
-      <button class="btn btn-lg btn-primary" type="submit" id="in">Sign in</button>
-      <a class="btn btn-lg btn-primary" href="Signup.html" id="in"> Sign Up </a>
-    </form>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.js"></script>
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
@@ -35,6 +23,18 @@
       integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
       crossorigin="anonymous"
     ></script>
+  </head>
+  <body class="center text-center">
+    <form class="form-signin" action="/login" method="GET">
+      <h1>Sign In</h1>
+      <label> Email Address </label>
+      <input name="email" class="form-control" id="inputEmail" />
+      <label> Password </label>
+      <input name="password" class="form-control" id="inputPassword" type="password" />
+      <p id="error"></p>
+      <button class="btn btn-lg btn-primary" onclick="submitForm()" id="in">Sign in</button>
+      <a class="btn btn-lg btn-primary" href="Signup.html" id="in"> Sign Up </a>
+    </form>
     <script>
       $("form").submit(() => {
         event.preventDefault();
