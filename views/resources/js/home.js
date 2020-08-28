@@ -16,7 +16,7 @@ function getWeather() {
   });
 }
 
-function submitForm () {
+function submitForm() {
   $.ajax({
     url: "/search_rides",
     method: "GET",
@@ -25,7 +25,7 @@ function submitForm () {
       inputStartCity: inputStartCity.value,
       departDate: dateInput.value
     },
-    success: info => {
+    success: (info) => {
       console.log(info);
       document.getElementById("rideTable").innerHTML =
         "<tr><th>Ride Date</th><th>Departure Time</th><th>Starting Location</th><th>Destination Mountain</th><th>Available Seats</th><th>Additional Info</th></tr><tr><td>" +
@@ -55,4 +55,4 @@ function submitForm () {
         "</td></tr>";
     }
   });
-});
+}
