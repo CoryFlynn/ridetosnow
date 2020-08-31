@@ -20,39 +20,37 @@
       <li style="float: right"><a href="Settings.html" class="active">Settings</a></li>
       <li style="float: right"><a href="Add.html">Add Ride</a></li>
     </ul>
-    <div class="container">
+    <div class="col-sm">
+      <h1 style="color: #002266">Settings</h1>
+      <p style="color: #002266">Use this page to adjust your settings and offer or request rides to and from people near you!</p>
+      <br />
       <div class="col-sm">
-        <h1 style="color: #002266">Settings</h1>
-        <p style="color: #002266">Use this page to adjust your settings and offer or request rides to and from people near you!</p>
+        <h3 style="color: #002266">General Settings</h3>
         <br />
-        <div class="col-sm">
-          <h3 style="color: #002266">General Settings</h3>
+        <form>
+          <div class="form-group">
+            <label for="fullName"><h5 style="color: #002266">Full Name:</h5></label>
+            <input type="text" class="form-control" id="fullName" aria-describedby="nameHelp" placeholder="Name" />
+          </div>
+          <div class="form-group">
+            <label for="ageInput" style="color: #002266"><h5>Age:</h5></label>
+            <input type="number" class="form-control" id="ageInput" aria-describedby="ageHelp" placeholder="Age" />
+          </div>
+          <div class="form-group">
+            <label for="carInput" style="color: #002266"><h5>Car Type:</h5></label>
+            <input type="text" class="form-control" id="carInput" aria-describedby="carHelp" placeholder="Type" />
+          </div>
+          <div class="form-group">
+            <label for="carColorInput" style="color: #002266"><h5>Car Color:</h5></label>
+            <input type="text" class="form-control" id="carColorInput" aria-describedby="colorHelp" placeholder="Color" />
+          </div>
+          <div class="form-group">
+            <label for="licenseInput" style="color: #002266"><h5>License:</h5></label>
+            <input type="text" class="form-control" id="licenseInput" aria-describedby="licenseHelp" placeholder="License" />
+          </div>
+          <button type="button" class="btn btn-info" onclick="submitInfo();">Save Changes</button>
           <br />
-          <form>
-            <div class="form-group">
-              <label for="fullName"><h5 style="color: #002266">Full Name:</h5></label>
-              <input type="text" class="form-control" id="fullName" aria-describedby="nameHelp" placeholder="Name" />
-            </div>
-            <div class="form-group">
-              <label for="ageInput" style="color: #002266"><h5>Age:</h5></label>
-              <input type="number" class="form-control" id="ageInput" aria-describedby="ageHelp" placeholder="Age" />
-            </div>
-            <div class="form-group">
-              <label for="carInput" style="color: #002266"><h5>Car Type:</h5></label>
-              <input type="text" class="form-control" id="carInput" aria-describedby="carHelp" placeholder="Type" />
-            </div>
-            <div class="form-group">
-              <label for="carColorInput" style="color: #002266"><h5>Car Color:</h5></label>
-              <input type="text" class="form-control" id="carColorInput" aria-describedby="colorHelp" placeholder="Color" />
-            </div>
-            <div class="form-group">
-              <label for="licenseInput" style="color: #002266"><h5>License:</h5></label>
-              <input type="text" class="form-control" id="licenseInput" aria-describedby="licenseHelp" placeholder="License" />
-            </div>
-            <button type="button" class="btn btn-info" onclick="submitInfo();">Save Changes</button>
-            <br />
-          </form>
-        </div>
+        </form>
       </div>
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.js"></script>
