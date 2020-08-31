@@ -96,3 +96,7 @@ th,
 td {
   padding: 15px;
 }
+
+.form-control {
+  width: 400px;
+}
