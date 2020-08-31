@@ -194,12 +194,10 @@ app.post("/login", (req, res) => {
 
 app.get("/Signup", (req, res) => {
   res.sendFile(path.join(__dirname, "./views", "Signup.html"));
-  //db.any('')
 });
 
 app.get("/Settings", (req, res) => {
   res.sendFile(path.join(__dirname, "./views", "Settings.html"));
-  //db.any('')
 });
 
 app.post("/signup", (req, res) => {
