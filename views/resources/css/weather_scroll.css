@@ -57,8 +57,3 @@
     transform: translateX(-100%);
   }
 }
-
-#asuh {
-  width: calc(75%-25px) !important;
-  margin-left: calc(25%+25px) !important;
-}
