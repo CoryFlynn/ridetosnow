@@ -45,7 +45,7 @@ const dbConfig = {
 let db = pgp(dbConfig);
 
 app.set("view engine", html);
-app.use(express.static(__dirname + "/views/")); // This line is necessary for us to use relative paths and access our resources directory
+app.use(express.static(__dirname + "/public/")); // This line is necessary for us to use relative paths and access our resources directory
 
 app.use((req, res, next) => {
   res.header("Access-Control-Allow-Origin", "*");
@@ -101,7 +101,7 @@ function retrieveNpost(url, resort, id, url2) {
 
 app.get("/", (req, res) => {
   console.log(__dirname);
-  res.sendFile(path.join(__dirname, "./views/Home.html"));
+  res.sendFile(path.join(__dirname, "./public/Home.html"));
 });
 
 app.get("/Home", (req, res) => {
@@ -123,7 +123,7 @@ app.get("/Home", (req, res) => {
     .catch((error) => {
       console.log(error);
     });
-  res.sendFile(path.join(__dirname, "./views", "Home.html"));
+  res.sendFile(path.join(__dirname, "./public", "Home.html"));
 });
 
 app.get("/search_rides", function (req, res) {
@@ -171,11 +171,11 @@ app.post("/add", (req, res) => {
     .catch((err) => {
       console.log(err);
     });
-  res.sendFile(path.join(__dirname, "./views", "Settings.html"));
+  res.sendFile(path.join(__dirname, "./public", "Settings.html"));
 });
 
 app.get("/Login", (req, res) => {
-  res.sendFile(path.join(__dirname, "./views", "Login.html"));
+  res.sendFile(path.join(__dirname, "./public", "Login.html"));
 });
 
 app.post("/login", (req, res) => {
@@ -193,11 +193,11 @@ app.post("/login", (req, res) => {
 });
 
 app.get("/Signup", (req, res) => {
-  res.sendFile(path.join(__dirname, "./views", "Signup.html"));
+  res.sendFile(path.join(__dirname, "./public", "Signup.html"));
 });
 
 app.get("/Settings", (req, res) => {
-  res.sendFile(path.join(__dirname, "./views", "Settings.html"));
+  res.sendFile(path.join(__dirname, "./public", "Settings.html"));
 });
 
 app.post("/signup", (req, res) => {
@@ -227,12 +227,12 @@ app.post("/signup", (req, res) => {
 });
 
 app.get("/Profile", (req, res) => {
-  res.sendFile(path.join(__dirname, "./views", "Profile.html"));
+  res.sendFile(path.join(__dirname, "./public", "Profile.html"));
   //db.any('')
 });
 
 app.get("/Faq.html", (req, res) => {
-  res.sendFile(path.join(__dirname, "./views", "Faq.html"));
+  res.sendFile(path.join(__dirname, "./public", "Faq.html"));
   //db.any('')
 });
 
