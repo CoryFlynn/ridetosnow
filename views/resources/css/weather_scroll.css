@@ -59,6 +59,6 @@
 }
 
 #asuh {
-  width: calc(75%-25px);
-  margin-left: calc(25%+25px);
+  width: calc(75%-25px) !important;
+  margin-left: calc(25%+25px) !important;
 }
