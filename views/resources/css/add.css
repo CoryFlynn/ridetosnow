@@ -100,3 +100,12 @@ td {
 .form-control {
   width: 400px !important;
 }
+
+.rightGroup {
+  float: right;
+  margin-left: 50%;
+}
+
+.leftGroup {
+  width: 50%;
+}
