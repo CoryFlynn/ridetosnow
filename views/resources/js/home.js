@@ -1,7 +1,7 @@
 function getWeather() {
   let m = document.getElementById("inputWeatherResort").value;
   $.ajax({
-    url: `https://ski-lift-site.herokuapp.com/search_weather`,
+    url: `https://ridetosnow.com/search_weather`,
     method: "GET",
     data: {
       mountain: m
