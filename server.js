@@ -161,7 +161,7 @@ app.get("/search_weather", function (req, res) {
     });
 });
 
-app.post("/setting", (req, res) => {
+app.post("/add", (req, res) => {
   console.log("server" + req.body);
   var query = `INSERT INTO available_rides (user_id, ride_date, ride_time, dest_mountain, start_city, ride_cost, open_seats, optional_notes) VALUES (${req.body.user_id}, '${req.body.date}', '${req.body.date}', '${req.body.resort}', '${req.body.start}', ${req.body.pay}, ${req.body.slots}, '${req.body.description}');`;
   db.any(query)

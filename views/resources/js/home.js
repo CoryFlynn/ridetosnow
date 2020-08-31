@@ -1,7 +1,7 @@
 function getWeather() {
   let m = document.getElementById("inputWeatherResort").value;
   $.ajax({
-    url: `https://ridetosnow.com/search_weather`,
+    url: `/search_weather`,
     method: "GET",
     data: {
       mountain: m

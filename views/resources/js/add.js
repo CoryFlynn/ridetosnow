@@ -7,7 +7,7 @@ function submitRide() {
   var start = $("#start1").val();
   $.ajax({
     method: "POST",
-    url: "/setting",
+    url: "/add",
     data: {
       user_id: sessionStorage.getItem("user_id"),
       date: date,
