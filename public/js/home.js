@@ -1,5 +1,6 @@
 function getWeather() {
   let m = document.getElementById("inputWeatherResort").value;
+  console.log(m);
   $.ajax({
     url: `/search_weather`,
     method: "GET",
