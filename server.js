@@ -6,6 +6,7 @@
   Pug          - A view engine for dynamically rendering HTML pages
   Pg-Promise   - A database tool to help use connect to our PostgreSQL database
 ***********************/
+const { v4: uuidv4 } = require("uuid");
 
 const express = require("express"); // Add the express framework has been added
 let app = express();
@@ -201,7 +202,9 @@ app.get("/Settings", (req, res) => {
 });
 
 app.post("/signup", (req, res) => {
-  let query = `INSERT INTO users (name, email, password, is18, isDriver) VALUES ('${req.body.first} ${req.body.last}', '${req.body.email}', '${req.body.password}', ${req.body.is18}, ${req.body.isDriver})`;
+  let query = `INSERT INTO users (user_id, name, email, password, is18, isDriver) VALUES ('${uuidv4()}', '${req.body.first} ${req.body.last}', '${
+    req.body.email
+  }', '${req.body.password}', ${req.body.is18}, ${req.body.isDriver})`;
   let q2 = `SELECT user_id FROM users WHERE email='${req.body.email}'`;
   console.log(q2);
   db.any(q2)
